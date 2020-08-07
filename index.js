@@ -50,7 +50,7 @@ async function msgHandler (client, message) {
         const { pushname } = sender
         const { formattedTitle } = chat
         const time = moment(t * 1000).format('DD/MM HH:mm:ss')
-        const commands = ['#menu','#help','#sticker', '#stiker', '#tiktok', '#ig', '#instagram', '#twt', '#twitter', '#fb', '#facebook', '#quotes', 'assalamualaikum', 'P', 'hai', 'hallo', 'hi', 'halo', 'bot', 'selamat pagi', 'selamat siang', 'selamat malam', 'makasi','makasih', 'thanks', 'maacii', 'mas', 'mbak', 'mba', 'dek']
+        const commands = ['#menu','#help','#sticker', '#stiker', '#tiktok', '#ig', '#instagram', '#tw', '#twt', '#twitter', '#fb', '#facebook', '#quotes', 'assalamualaikum', 'P', 'hai', 'hallo', 'hi', 'halo', 'bot', 'selamat pagi', 'selamat siang', 'selamat malam', 'makasi','makasih', 'thanks', 'maacii', 'mas', 'mbak', 'mba', 'dek']
         const cmds = commands.map(x => x + '\\b').join('|')
         const cmd = type === 'chat' ? body.match(new RegExp(cmds, 'gi')) : type === 'image' && caption ? caption.match(new RegExp(cmds, 'gi')) : ''
 
@@ -62,7 +62,7 @@ async function msgHandler (client, message) {
             switch (cmd[0]) {
                 case '#menu':
                 case '#help':
-                    client.sendText(from, 'Menu: \n1. #sticker / #stiker: kirim gambar dengan caption atau balas gambar yang sudah dikirim. \n2. #sticker / #stiker spasi url gambar (contoh: #stiker https://avatars2.githubusercontent.com/u/24309806) \n3. #tiktok spasi url (contoh: #tiktok https://www.tiktok.com/@keyzent/video/685521...)')
+                    client.sendText(from, 'Menu: \n1. #sticker / #stiker: kirim gambar dengan caption atau balas gambar yang sudah dikirim. \n2. #sticker / #stiker spasi url gambar (contoh: #stiker https://avatars2.githubusercontent.com/u/24309806) \n3. #tiktok spasi url (contoh: #tiktok https://www.tiktok.com/@keyzent/video/685521...) \n4. #tw spasi url (contoh: #tw https://twitter.com/mbuhre514/status/1288667046067048448) \n5. #ig spasi url (contoh: #ig https://www.instagram.com/P/CCd....) \n6. #fb spasi url (contoh: #fb https://www.facebook.com/keyzent/posts/382....)')
                     break
                 case 'assalamualaikum':
                     client.sendText(from, 'waalaikumsalam')
@@ -163,6 +163,7 @@ async function msgHandler (client, message) {
                             });
                     }
                     break
+                case 'tw':
                 case '#twt':
                 case '#twitter':
                     if (args.length == 2) {
